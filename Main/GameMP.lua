@@ -856,7 +856,7 @@ function Game:NewPlayerRequest(clientID,name,model,team,state,spectator)
       
     Game.PlayerStats[clientID].Model = MPModels[model] -- pamietam na serwerze jakim modelem bedzie gral  
     
-    local txt = "Please install PK++ www.pkeuro.com"
+    local txt = "Please install PK++ www.pkeuro.net"
     SendNetMethod(Game.ConsoleClientMessage, clientID, true, true, ServerID, txt, 0)
     if(MPCfg.ProPlus) then Game:Server2ClientCommand(0,"enableproplusall") else Game:Server2ClientCommand(0,"disenableproplusall") end
     Game:SendRocketFix()
