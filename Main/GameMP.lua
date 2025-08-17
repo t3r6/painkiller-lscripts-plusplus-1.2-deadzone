@@ -1800,7 +1800,10 @@ Network:RegisterMethod("Game.PlayerPingInfo", NCallOn.ServerAndAllClients, NMode
 function Game:SayToAll(clientID,txt,color)
     local ps = Game.PlayerStats[clientID]
     if not ps and not (clientID == ServerID and IsDedicatedServer()) then return end -- juz wyszedl
-    
+
+	if Cfg.MaxMessageSize == 0 then return end
+	txt = string.sub(txt,1,Cfg.MaxMessageSize)
+
     if(Game:Client2ServerRead(clientID, txt))then return end
     
     local onebotheardsomething = nil
@@ -1830,7 +1833,10 @@ Network:RegisterMethod("Game.SayToAll", NCallOn.Server, NMode.Reliable, "bsi")
 function Game:SayToTeam(clientID,txt,color)
     local ps = Game.PlayerStats[clientID]
     if not ps or ps.Spectator == 1 then return end
-            
+
+	if Cfg.MaxMessageSize == 0 then return end
+	txt = string.sub(txt,1,Cfg.MaxMessageSize)
+
     for i,o in Game.PlayerStats do
         if o.Team == ps.Team then 
             if o.ClientID == ServerID then
@@ -1856,10 +1862,12 @@ function Game:ConsoleClientMessage(clientID,txt,color)
     
     if not ps then return end -- juz wyszedl
 
+	txt = string.sub(ps.Name .. ": "..txt,1,1023)
+
 	if color == nil or color == 0 then
-		CONSOLE_AddMessage(ps.Name .. ": "..txt,R3D.RGB(255,0,0))
+		CONSOLE.AddMessage(txt,R3D.RGB(255,0,0))
 	else
-		CONSOLE_AddMessage(ps.Name .. ": "..txt,color)
+		CONSOLE.AddMessage(txt,color)
 	end
     SOUND.Play2D("menu/magicboard/wrong_place",100,true,true)
    
@@ -1869,6 +1877,8 @@ Network:RegisterMethod("Game.ConsoleClientMessage", NCallOn.ServerAndAllClients,
 --============================================================================
 -- [NET - ALL CLIENTS] --
 function Game:ConsoleMessage(txt)
+	txt = string.sub(txt,1,1023)
+
     CONSOLE_AddMessage(txt,R3D.RGB(255,0,0))
     SOUND.Play2D("menu/magicboard/wrong_place",100,true,true)
 end
