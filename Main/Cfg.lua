@@ -123,7 +123,7 @@ Cfg =
 	Simplehud = false,
 	SimplehudShadow = true,
 	Autorecord = true,
-	Overtime = 2,
+	Overtime = 0,
 	SafeRespawn = false,
 	
 	
