@@ -8,7 +8,7 @@ function Game:Server2ClientCommand(clientid,command,param)
 	    		for i,ps in Game.PlayerStats do
 	    			--if(Game.PlayerStats[ps.ClientID].Version==nil)then Game.PlayerStats[ps.ClientID].Version = false end
 				if(Game.PlayerStats[ps.ClientID].Version==false or Game.PlayerStats[ps.ClientID].Version==nil)then					
-					local txt = "Please install PK++ www.pkeuro.net"
+					local txt = "Please install PK++ www.pkeuro.com"
 					SendNetMethod(Game.ConsoleClientMessage, ps.ClientID, true, true, ServerID, txt, 0)
 				end
 			end
@@ -88,7 +88,7 @@ function Game:Server2ClientRead(txt)
 		    	Game:SetStats(statsclientid,statsattacktype,statshits,statshots,statsdamage)    
 		    	return true   
 	    end
-	    if(txt == "Please install PK++ www.pkeuro.net")then
+	    if(txt == "Please install PK++ www.pkeuro.com")then
 	    	CONSOLE_AddMessage("Attempting to auth with server.")
 	    	Game:Client2ServerCommand("CMD:PK++VERSIONOKAY")
 	    	return true

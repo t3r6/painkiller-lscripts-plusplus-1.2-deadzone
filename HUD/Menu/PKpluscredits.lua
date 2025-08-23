@@ -99,7 +99,7 @@ PKpluscredits =
 		Test10 =
 		{
 			type = MenuItemTypes.StaticText,
-			text = "www.pkeuro.net",
+			text = "www.pkeuro.com",
 			x	 = 150,
 			y	 = 520,
 			action = "",
