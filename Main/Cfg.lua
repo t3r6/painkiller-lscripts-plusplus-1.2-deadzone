@@ -366,7 +366,6 @@ Cfg =
     NetcodeEnemyPredictionInterpolationFactor = 0.66,
     NetcodeMinUpstreamFrameSize = 0,
     ZoomFOV = 50,
-    MaxMessageSize = 200,
     StopMatchOnTeamQuit = false,
     NoWarmup = false,
     PureScripts = false,	-- strict scripts checksum checking during net connection
@@ -599,12 +598,6 @@ function Cfg:Load()
 	
 	if Cfg.StartupWeapon < 0 or Cfg.StartupWeapon > 7 then
 		Cfg.StartupWeapon = 0
-	end
-	
-	if Cfg.MaxMessageSize < 0 then
-		Cfg.MaxMessageSize = 0
-	elseif Cfg.MaxMessageSize > 1023 then
-		Cfg.MaxMessageSize = 1023
 	end
 end
 --============================================================================
