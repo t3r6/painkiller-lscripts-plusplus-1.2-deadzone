@@ -53,7 +53,7 @@ end
 function Game:Server2ClientRead(txt)
 	-- COMMANDS READ ON CLIENT
 	--MsgBox("got data "..txt)
-	    local pattern = "(%w+),(%w+),(%w+),(%w+),(%w+),(%w+),(%w+),(%w+)"
+	    local pattern = "([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+)"
 	    local check = string.gsub(txt, pattern , "%1")  
 	    if(check=="L33T")then
 	    	local specplayerid = string.gsub(txt, pattern, "%2")
