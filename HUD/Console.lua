@@ -901,6 +901,8 @@ function Console:CheckVotingParams(cmd,params)
 		return true
 	elseif cmd == "rocketfix" then
 		return true
+	elseif cmd == "proplustelefrag" then
+		return true
 	end
 
 	CONSOLE_AddMessage( "Command '"..cmd.."' cannot be used for voting" )

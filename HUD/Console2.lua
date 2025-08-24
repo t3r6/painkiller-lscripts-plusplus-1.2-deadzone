@@ -986,6 +986,15 @@ function Console:Cmd_FALLINGDAMAGE(enable)
 	else CONSOLE_AddMessage("State: FallingDamage is currently off.") end
 end	
 
+function Console:Cmd_PROPLUSTELEFRAG(enable)    
+	if(enable=="1")then Cfg.ProPlusTelefrag = true CONSOLE_AddMessage("ProPlusTelefrag is now enabled.")  return end
+	if(enable=="0")then Cfg.ProPlusTelefrag = false CONSOLE_AddMessage("ProPlusTelefrag is now disabled.") return end
+	CONSOLE_AddMessage("Syntax: ProPlusTelefrag [1/0]")
+	CONSOLE_AddMessage("Help: Toggles ProPlusTelefrag.")
+	if Cfg.ProPlusTelefrag then CONSOLE_AddMessage("State: ProPlusTelefrag is currently on.")
+	else CONSOLE_AddMessage("State: ProPlusTelefrag is currently off.") end
+end	
+
 function Console:Cmd_WEAPONPREDICTION(enable)    
 	if true then CONSOLE_AddMessage("Command is disabled in this version.") return end
 	if(enable=="1")then Cfg.WeaponPrediction = true CONSOLE_AddMessage("WeaponPrediction is now enabled.")  return end

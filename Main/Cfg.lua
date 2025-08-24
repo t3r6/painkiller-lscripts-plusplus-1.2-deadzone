@@ -79,6 +79,7 @@ Cfg =
 	ForceSpec = false,
 	RocketsFromGun = true,
 	ProPlus = false,
+    ProPlusTelefrag = false,
 	BotAttack = true,
 	BotFindItems = true,
 	BotFakePing = true,
